@@ -1,11 +1,10 @@
 'use strict';
+
 const inquirer = require('inquirer');
 const fs = require('fs');
 const Circle = require('./shapes/circle'); 
 const Triangle = require('./shapes/triangle');
 const Square = require('./shapes/square');
-const svg2png = require('svg2png');
-const { promisify } = require('util');
 
 async function create_svg(text, text_color, shape, shape_color) {
   let shapeInstance;
@@ -32,14 +31,7 @@ async function create_svg(text, text_color, shape, shape_color) {
     // Create an SVG file
     fs.writeFileSync('logo.svg', svgTemplate);
 
-    // Convert the SVG to PNG
-    const convert = promisify(svg2png);
-    const buffer = await convert('logo.svg');
-
-    // Save the PNG file
-    fs.writeFileSync('logo.png', buffer);
-
-    console.log('Logo saved as logo.svg and logo.png');
+    console.log('Logo saved as logo.svg');
   }
 }
 
