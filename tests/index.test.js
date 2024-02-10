@@ -1,5 +1,4 @@
-const { Circle, Triangle, Square } = require('./shapes');
-const { create_svg } = require('./main');
+const { Circle, Triangle, Square } = require('./shapes/index');
 
 describe('Shape Rendering', () => {
   it('should render a circle with the correct color', () => {
@@ -30,10 +29,4 @@ describe('Create SVG', () => {
     const text_color = 'blue';
     const shape = 'circle';
     const shape_color = 'red';
-
-    // You may need to write additional code or mocks for file system operations here.
-
-    // Call create_svg with the above inputs and assert that the SVG file is created.
-    // You may want to use Jest's mocking capabilities for file operations.
-  });
 });

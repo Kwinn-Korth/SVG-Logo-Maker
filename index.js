@@ -2,9 +2,7 @@
 
 const inquirer = require('inquirer');
 const fs = require('fs');
-const Circle = require('./shapes/circle'); 
-const Triangle = require('./shapes/triangle');
-const Square = require('./shapes/square');
+const { Circle, Triangle, Square } = require('./shapes');
 
 async function create_svg(text, text_color, shape, shape_color) {
   let shapeInstance;
@@ -26,10 +24,17 @@ async function create_svg(text, text_color, shape, shape_color) {
 
   if (shapeInstance) {
     shapeInstance.setColor(shape_color);
-    const svgTemplate = shapeInstance.render();
 
-    // Create an SVG file
-    fs.writeFileSync('logo.svg', svgTemplate);
+    // Construct SVG content with text and shape
+    const svgContent = `
+      <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+        <text x="150" y="100" fill="${text_color}" text-anchor="middle" alignment-baseline="middle">${text}</text>
+        ${shapeInstance.render()}
+      </svg>
+    `;
+
+    // Write SVG content to file
+    fs.writeFileSync('logo.svg', svgContent);
 
     console.log('Logo saved as logo.svg');
   }
@@ -66,7 +71,7 @@ async function main() {
       name: 'shape_color',
       message: 'Enter the shape color (color keyword or hexadecimal):',
     },
-   ]);
+  ]);
 
   const { text, text_color, shape, shape_color } = userResponse;
 
