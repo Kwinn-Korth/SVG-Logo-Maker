@@ -12,9 +12,7 @@ All you need to do is clone the repo, install the necessary packages in the pack
 
 Anyone can use this code for anything.
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+ [Link Text](https://drive.google.com/drive/folders/1NP-xWTCg-huMbpcezRpo5U4jEkI7lRpC?usp=drive_link)
 
 ## Credits
 
