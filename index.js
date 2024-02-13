@@ -1,6 +1,9 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-const { Circle, Triangle, Square } = require('./shapes/shapes.js');
+const shapes = require('./shapes/shapes.js');
+const path = require('path');
+const examples = './examples';
+
 
 inquirer
     .prompt([
@@ -33,7 +36,7 @@ inquirer
         }
     ])
     .then((data) => {
-    const filename = path.join(examples, `${data.text}.svg`);
+    const filename = path.join(__dirname, `${data.text}.svg`);
 
     const logoData = {
         text: data.text,
@@ -46,13 +49,13 @@ inquirer
 
     if (logoData.shape == 'circle') {
         const circle = new shapes.Circle(150, 100, 80, logoData.shapeColor);
-        shapeSvg = circle.getSvg();
+        shapeSvg = circle.getSVG();
     } else if (logoData.shape == 'triangle') {
         const triangle = new shapes.Triangle('150,0 20,200 280,200', logoData.shapeColor);
-        shapeSvg = triangle.getSvg();
+        shapeSvg = triangle.getSVG();
     } else if (logoData.shape == 'square') {
         const square = new shapes.Square(50, 10, 200, 200, logoData.shapeColor);
-        shapeSvg = square.getSvg();
+        shapeSvg = square.getSVG();
     }
 
     const logoCode = `
