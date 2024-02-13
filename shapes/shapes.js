@@ -1,13 +1,15 @@
 class Circle {
-    constructor(cy, cx, r, fill) {
-    this.cy = cy;
-    this.cx = cx;
-    this.r = r;
-    this.fill = fill;
-    } getSVG() {
-    return `<circle cx="${this.cx}" cy="${this.cy}" r="${this.r}" fill="${this.fill}" />`;
+    constructor(cx, cy, r, fill) {
+        this.cx = cx;
+        this.cy = cy;
+        this.r = r;
+        this.fill = fill;
+    } 
+    getSVG() {
+        return `<circle cx="${this.cx}" cy="${this.cy}" r="${this.r}" fill="${this.fill}" />`;
     }
-};
+}
+
 
 class Square {
     constructor(x, y, width, height, fill) {
@@ -31,8 +33,7 @@ class Triangle {
     this.y3 = y3;
     this.fill = fill;
     } getSVG() {
-    return `<polygon points="${this.x1},${this.y1} ${this.x2},${this.y2} ${this.x3},${this.y3}" fill="${this.fill}" />`;
-    }
+        return `<polygon points="${this.x1},${this.y1} ${this.x2},${this.y2} ${this.x3},${this.y3}" fill="${this.fill}" />`;    }
 };
 
 module.exports = { Circle, Square, Triangle };
