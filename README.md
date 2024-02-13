@@ -8,6 +8,10 @@ This is just a very simple svg logo maker that uses node.js to run it and you ma
 
 All you need to do is clone the repo, install the necessary packages in the package.json and then run "node index.js" in the terminal.
 
+## Test
+
+You can run "npm run test" to use jest to make sure that the functions for making the svg shapes with color and text work.
+
 ## Usage
 
 Anyone can use this code for anything.
